@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    border: none;
+    outline: none;
+    font-family: 'Marhey', cursive;
+    direction: rtl;
+}
+
+body {
+    background-color: #FEFEFE;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: #FEFEFE;
+    box-shadow: 0px 0px 2px 2px #32323212;
+    padding: 12px;
+}
+
+.navbar h3 {
+    color: #323232;
+    font-size: calc(0.5vw + 16px);
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.navbar nav a {
+    color: #323232;
+    text-decoration: none;
+    font-size: calc(0.35vw + 12px);
+    padding: 2px;
+}
+
+.navbar nav a.active {
+    color: #007bff;
+}
+
+.hero-section {
+    width: 100%;
+    min-height: calc(100vh - 61px);
+    background: #323232C2 url('./hero-section.jpg') center center no-repeat;
+    background-size: cover;
+    background-blend-mode: overlay;
+    display: flex;
+    align-items: center;
+}
+
+.hero-section .text-container {
+    padding: 12px;
+    width: calc(100% - 120px);
+    margin: 0 auto;
+}
+
+.hero-section .text-container h1 {
+    color: #FEFEFE;
+    font-size: calc(1vw + 24px);
+}
+
+.hero-section .text-container p {
+    color: #FEFEFE;
+    font-size: calc(0.5vw + 16px);
+    opacity: 0.9;
+    margin: 4px 0 16px 0;
+}
+
+.hero-section .text-container .btns-container {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+}
+
+.hero-section .text-container .btns-container a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 22px;
+    text-decoration: none;
+    font-size: calc(0.35vw + 14px);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+.hero-section .text-container .btns-container a.subscribe-btn {
+    background-color: #FEFEFE;
+    color: #323232;
+}
+
+.hero-section .text-container .btns-container a.contact-btn {
+    background-color: #FEFEFE00;
+    color: #FEFEFE;
+    border: 2px solid #FEFEFE;
+}
+
+.attribute {
+    padding: 4px 12px;
+}
+
+.attribute p {
+    color: #323232;
+    font-size: calc(0.4vw + 12px);
+}
+
+.attribute p a {
+    color: #007bff;
+    text-decoration: none;
+}
