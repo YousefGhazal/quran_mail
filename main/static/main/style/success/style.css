@@ -9,6 +9,12 @@
     direction: rtl;
 }
 
+a {
+    text-decoration: none;
+    display: inline-block;
+    color: inherit;
+}
+
 body {
     background-color: #FEFEFE;
 }
