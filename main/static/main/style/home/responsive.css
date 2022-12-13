@@ -1,0 +1,15 @@
+@media (max-width: 768px) {
+    .hero-section .text-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 425px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .hero-section {
+        min-height: calc(100vh - 92px);
+    }
+}

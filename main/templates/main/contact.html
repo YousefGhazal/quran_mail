@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>
+        تواصل معنا | اسم الموقع
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marhey&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href={% static 'main/style/contact/style.css' %} >
+    <link rel="stylesheet" href={% static 'main/style/contact/responsive.css' %} >
+</head>
+
+<body>
+    <header class="navbar">
+        <h3>
+            اسم الموقع
+        </h3>
+        <nav>
+            <a href={% url 'home' %}>
+                الرئيسية
+            </a>
+            <a href={% url 'contact' %} class="active">
+                تواصل معنا
+            </a>
+            <a href={% url 'subscribe' %} >
+                اشترك الان
+            </a>
+        </nav>
+    </header>
+    <main>
+        <section class="contact-us-section">
+            <h1>
+                تواصل معنا
+            </h1>
+            <p>
+                يسرنا تواصلكم معنا من خلال النموذج التالي عند الرغبة فى اخبارنا اى شئ يخص هذا الموقع الالكترونى
+            </p>
+            <form method="post" >
+                {% csrf_token %}
+                <input name='name' type="text" placeholder="ادخل الاسم بالكامل" required>
+                <input name='email' type="email" placeholder="ادخل البريد الالكترونى" required>
+                <textarea name='description' placeholder="ما الذى ترغب فى اخبارنا به؟" required></textarea>
+                <button>
+                    ارسال
+                </button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
