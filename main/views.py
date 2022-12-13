@@ -17,16 +17,16 @@ def subscribe(request):
                   'main/subscribe.html',
                   {'form':form})
 
-def unsubscribe(request):
-    user = User.objects.get('email')
-    if user == request.get():
-        if user['active'] == False :
-            return redirect('success')
+# def unsubscribe(request):
+#     user = User.objects.get('email')
+#     if user == request.get():
+#         if user['active'] == False :
+#             return redirect('success')
         
     
-    return render(request, 
-                  'main/subscribe.html',
-                  {'user':user})
+#     return render(request, 
+#                   'main/subscribe.html',
+#                   {'user':user})
 
 def home(request):
     
