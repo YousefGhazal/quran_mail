@@ -31,12 +31,14 @@ DEBUG = env("DEBUG", cast=bool)
 ALLOWED_HOSTS = env("ALLOWED_HOSTS", cast=list)
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'softdelete',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -59,8 +61,11 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
-        'APP_DIRS': True,
         'OPTIONS': {
+            'loaders': (
+                  'django.template.loaders.filesystem.Loader',
+                  'django.template.loaders.app_directories.Loader',
+              ),
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
