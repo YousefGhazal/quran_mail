@@ -4,6 +4,9 @@
         "mediafiles",
         "psycopg",
         "softdelete",
-        "tafsir"
+        "tafsir",
+        "الاشتراك",
+        "الغاء",
+        "بنجاح"
     ]
 }
