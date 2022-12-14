@@ -43,9 +43,12 @@
             <p>
                 بمجرد الاشتراك فى خدمتنا المجانية سوف تتلقى رسالة تحمل آية من القرآن يوميا عبر بريدك الالكترونى
             </p>
-            <form method="post">
+            <form method="post" onsubmit="return isSubscriptionFormValid()">
                 {% csrf_token %}
-                <input type="email" name='email' placeholder="ادخل البريد الالكترونى" required>
+                <div class="input-container js-input-container">
+                    <input type="text" name='email' placeholder="ادخل البريد الالكترونى" class="js-email-input">
+                    <p class="error js-error-holder"></p>
+                </div>
                 <button>
                     اشتراك
                 </button>
@@ -53,4 +56,5 @@
         </section>
     </main>
 </body>
+<script src={% static 'main/scripts/subscribe.js' %}></script>
 </html>

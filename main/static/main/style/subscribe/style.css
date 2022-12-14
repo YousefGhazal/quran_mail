@@ -112,3 +112,12 @@ body {
     color: #FEFEFE;
     cursor: pointer;
 }
+
+.input-container {
+    width: 100%;
+}
+
+.error {
+    font-size: 12px !important;
+    color: #dc3545 !important;
+}
