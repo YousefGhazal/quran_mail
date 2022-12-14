@@ -6,7 +6,7 @@
     border: none;
     outline: none;
     font-family: 'Cairo', cursive;
-    direction: rtl;
+
 }
 
 a {
@@ -17,6 +17,7 @@ a {
 
 body {
     background-color: #FEFEFE;
+    direction: rtl;
 }
 
 .navbar {
