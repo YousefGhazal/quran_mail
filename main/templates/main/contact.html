@@ -43,11 +43,20 @@
             <p>
                 يسرنا تواصلكم معنا من خلال النموذج التالي عند الرغبة فى اخبارنا اى شئ يخص هذا الموقع الالكترونى
             </p>
-            <form method="post" >
+            <form method="post" onsubmit="return isContactFormValid()">
                 {% csrf_token %}
-                <input name='name' type="text" placeholder="ادخل الاسم بالكامل" required>
-                <input name='email' type="email" placeholder="ادخل البريد الالكترونى" required>
-                <textarea name='description' placeholder="ما الذى ترغب فى اخبارنا به؟" required></textarea>
+                <div class="input-container js-input-container">
+                    <input name='name' type="text" placeholder="ادخل الاسم بالكامل" class="js-name-input">
+                    <p class="error js-error-holder"></p>
+                </div>
+                <div class="input-container js-input-container">
+                    <input name='email' type="text" placeholder="ادخل البريد الالكترونى" class="js-email-input">
+                    <p class="error js-error-holder"></p>
+                </div>
+                <div class="input-container js-input-container">
+                    <textarea name='message' placeholder="ما الذى ترغب فى اخبارنا به؟" class="js-msg-input"></textarea>
+                    <p class="error js-error-holder"></p>
+                </div>
                 <button>
                     ارسال
                 </button>
@@ -55,4 +64,5 @@
         </section>
     </main>
 </body>
+<script src={% static 'main/scripts/contact.js' %}></script>
 </html>

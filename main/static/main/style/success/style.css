@@ -48,7 +48,6 @@ body {
 
 .navbar nav a {
     color: #323232;
-    text-decoration: none;
     font-size: calc(0.35vw + 12px);
     padding: 2px;
 }
@@ -87,6 +86,5 @@ body {
     color: #FEFEFE;
     cursor: pointer;
     display: inline-block;
-    text-decoration: none;
     margin: 8px 0 0 0;
 }

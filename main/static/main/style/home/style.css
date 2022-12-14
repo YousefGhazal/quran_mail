@@ -48,7 +48,6 @@ body {
 
 .navbar nav a {
     color: #323232;
-    text-decoration: none;
     font-size: calc(0.35vw + 12px);
     padding: 2px;
 }
@@ -96,7 +95,6 @@ body {
     justify-content: center;
     align-items: center;
     padding: 6px 22px;
-    text-decoration: none;
     font-size: calc(0.35vw + 14px);
     border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -127,5 +125,4 @@ body {
 
 .attribute p a {
     color: #007bff;
-    text-decoration: none;
 }

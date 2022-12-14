@@ -48,7 +48,6 @@ body {
 
 .navbar nav a {
     color: #323232;
-    text-decoration: none;
     font-size: calc(0.35vw + 12px);
     padding: 2px;
 }
@@ -112,6 +111,7 @@ body {
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
+    display: block;
 }
 
 .contact-us-section form textarea:focus {
@@ -129,4 +129,13 @@ body {
     background-color: #323232;
     color: #FEFEFE;
     cursor: pointer;
+}
+
+.input-container {
+    width: 100%;
+}
+
+.error {
+    font-size: 12px !important;
+    color: #dc3545 !important;
 }
