@@ -1,9 +1,9 @@
 from django.db import models
-from softdelete.models import SoftDeleteObject
+
 
 # Create your models here.
 
-class User(SoftDeleteObject):
+class User(models.Model):
     email = models.EmailField(unique=True)
     active = models.BooleanField(default=True)
     def __str__(self) :
