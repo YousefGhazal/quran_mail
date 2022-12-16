@@ -3,6 +3,7 @@ from .models import User, Contact
 # Register your models here.
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
+    list_editable = ['active']
     list_display = ['email', 'active']
     search_fields = ['email']
     list_filter  = ['active']

@@ -7,5 +7,4 @@ urlpatterns = [
     path('contact/',views.contact, name='contact'),
     path('success/',views.success, name='success'),
     path('unsubscribe/<str:email>/',views.unsubscribe, name='unsubscribe'),
-    
 ]

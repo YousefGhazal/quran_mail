@@ -42,10 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    
+    'herald',
+    'django.contrib.sites',
 
     'main',
 ]
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -132,3 +134,12 @@ MEDIA_ROOT = BASE_DIR / "mediafiles"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# EMAIL
+# LOCAL_HOST = 
+EMAIL_HOST = env("EMAIL_HOST", cast=str)
+EMAIL_HOST_USER = env("EMAIL_HOST_USER", cast=str) 
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD", cast=str) 
+EMAIL_PORT = env("EMAIL_PORT", cast=int) 
+EMAIL_USE_TLS = env("EMAIL_USE_TLS", cast=str) 
+EMAIL_BACKEND = env("EMAIL_BACKEND", cast=str) 
