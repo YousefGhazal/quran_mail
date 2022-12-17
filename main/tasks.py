@@ -1,5 +1,6 @@
 from random import randrange
 import requests
+from celery import shared_task
 from .models import User
 from .notifications import Email
 
@@ -141,9 +142,29 @@ def send_request(url_aya, url_tafseer):
 # with open('text.txt', 'w') as f:
 #     f.write(str(send_request(*get_ayah())))
     
+@shared_task
 def active_user():
     users = User.objects.filter(active=True)
     m_ayah, m_tafseer = send_request(*get_ayah())
     for user in users:
         Email( m_ayah, m_tafseer, user.email).send()
-    
+        
+"""
+background task (function) runner
+1. normal life cycle -> send function to run in background
+   ex: after user registration > send email
+  request ------------------   response 
+                    |
+                    | 
+                background -------------------------------------- 
+2. cron job (التكرارية)
+    function that runs on certain times
+
+
+project (python) -> message(text) [rabbit mq - redis - others]  -> celery (python)
+
+
+
+
+
+"""

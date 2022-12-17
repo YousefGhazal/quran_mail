@@ -11,8 +11,12 @@
         requests.get(url).json()
 4. create cron job that runs every day
     - celery
+
         <https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html#first-steps>
+
         <https://docs.celeryq.dev/en/stable/django/first-steps-with-django.html>
+        
+        <https://docs.celeryq.dev/en/stable/userguide/periodic-tasks.html>
 5. make unsubscribe button in email have token
 6. contact us page
     - create new gmail
