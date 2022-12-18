@@ -6,9 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{sub}}</title>
 </head>
-<body>
-    <h2>{{ayah}}</h2>
-    <h2>{{tafsser}}</h2>
-    <a href="{% url 'unsubscribe' email %}">unsubscribe</a>
+<body style="background-color:#F7F7F7;direction:rtl;text-align:right;padding:12px">
+    <h2
+        style="color:#323232;
+        width:fit-content;
+        border-bottom:2px solid #323232;"
+    >
+        الآية 00 من سورة ااااا
+    </h2>
+    <div style="padding:2px;border:2px solid #28a745;border-radius:4px;">
+        <p
+            style="background-color:#28a745;
+            color:#F7F7F7;
+            padding:12px;
+            font-size:18px;
+            border-radius:4px;
+            margin:0;"
+        >
+            {{ayah}}
+        </p>
+    </div>
+    <h2
+        style="color:#323232;
+        width:fit-content;
+        border-bottom:2px solid #323232;"
+    >
+        تفسير الآية
+    </h2>
+    <p
+        style="color:#323232;
+        font-size:18px;"
+    >
+        {{tafsser}}
+    </p>
+    <hr>
+    <h2
+        style="color:#323232;
+        width:fit-content;
+        border-bottom:2px solid #323232;"
+    >
+        تواصل معنا
+    </h2>
+    <p
+        style="color:#323232;
+        font-size:18px;"
+    >
+        فى حين وجود اى شكاوى او اقتراحات ، يرجى التواصل معنا فورا
+    </p>
+    <a
+        href="#"
+        style="background-color:#007bff;
+        color:#F7F7F7;
+        display:inline-block;
+        padding:8px 24px;
+        border-radius:2px;
+        font-size:16px;"
+    >
+        تواصل الآن
+    </a>
+    <div
+        style="text-align:center;
+        padding:6px;
+        background-color:#E8E8E8;
+        margin-top:36px;"
+    >
+        <a
+            href="{% url 'unsubscribe' email %}"
+            style="color:#dc3545;
+            display:inline-block;
+            padding:4px 12px;"
+        >
+            لإلغاء الإشتراك فى هذه الخدمة ، إضغط هنا
+        </a>
+    </div>
 </body>
 </html>
