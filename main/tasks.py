@@ -147,7 +147,7 @@ def active_user():
     users = User.objects.filter(active=True)
     m_ayah, m_tafseer, num_ayah, name_sura = send_request(*get_ayah())
     for user in users:
-        Email( m_ayah, m_tafseer, num_ayah, name_sura, user.email).send()
+        Email( m_ayah, m_tafseer, user.email, num_ayah, name_sura).send()
         
 """
 background task (function) runner
