@@ -21,6 +21,6 @@ app.conf.timezone = settings.TIME_ZONE
 app.conf.beat_schedule = {
     "send_daily_email": {
         "task": "main.tasks.active_user",
-        "schedule": crontab(minute="0", hour="0"),
+        "schedule": crontab(),
     },
 }
