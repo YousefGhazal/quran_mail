@@ -16,7 +16,7 @@ app = Celery("quran_mail")
 # pickle the object when using Windows.
 app.config_from_object("django.conf:settings")
 app.autodiscover_tasks(settings.INSTALLED_APPS)
-app.conf.timezone = settings.TIME_ZONE
+app.conf.timezone = settings.TIME_ZONE # type: ignore
 
 app.conf.beat_schedule = {
     "send_daily_email": {

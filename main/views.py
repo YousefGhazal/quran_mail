@@ -3,12 +3,14 @@ from django.shortcuts import redirect, render
 from .models import User
 from .forms import UserForm, ContactForm
 
+
 # Create your views here.
 
 def subscribe(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
+            # User.objects.update_or_create(email=form.cleaned_data["email"], defaults={"active":True})
             form.save()
             return redirect('success')
     else: form = UserForm()
