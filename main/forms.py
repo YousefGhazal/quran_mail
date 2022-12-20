@@ -2,16 +2,15 @@ from django import forms
 from .models import User, Contact
 
 class UserForm(forms.ModelForm):
-    # email = forms.EmailField()
     class Meta:
         model = User
         fields = ['email']
-        
+
     def validate_unique(self):
         pass
 
     def save(self):
-        obj = super().save(False)
+        obj = super().save(commit=False)
         User.objects.update_or_create(email=obj.email, defaults={"active":True})
         
         
