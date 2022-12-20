@@ -35,6 +35,8 @@ def update():
         sudo('service nginx restart')
 
         sudo('cp infrastructure/gunicorn.conf /etc/supervisor/conf.d/')
+        sudo("cp infrastructure/celery.conf /etc/supervisor/conf.d/")
         sudo('supervisorctl reread')
         sudo('supervisorctl update')
         sudo('supervisorctl restart gunicorn')
+        sudo("supervisorctl restart celery")
