@@ -1,5 +1,6 @@
 from herald import registry
 from herald.base import EmailNotification
+from django.conf import settings
 
 class Email(EmailNotification):
     template_name = 'email' 
@@ -8,7 +9,7 @@ class Email(EmailNotification):
 
     def __init__(self, ayah, tafseer, email, num_ayah, name_sura):  
         self.context = {'ayah':ayah, 'tafsser':tafseer, 'email':email,
-         'sub':self.subject, 'num_ayah':num_ayah, 'name_sura':name_sura }
+         'sub':self.subject, 'num_ayah':num_ayah, 'name_sura':name_sura, 'domain':settings.DOMAIN}
         self.to_emails = [email]
     
     @staticmethod
