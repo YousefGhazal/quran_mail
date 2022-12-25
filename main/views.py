@@ -1,47 +1,30 @@
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import redirect, render
-from .models import User
-from .forms import UserForm, ContactForm
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from rest_framework import status
+from .serializers import UserSerializer, ContactSerializer
 
 
 # Create your views here.
-
+@api_view(["POST", "PUT"])
 def subscribe(request):
-    if request.method == 'POST':
-        form = UserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('success')
-    else: form = UserForm()
-    
-    return render(request,
-                  'main/subscribe.html',
-                  {'form':form})
+    user = UserSerializer(data=request.data)
+    if user.is_valid():
+        user.save()
+        return Response(user.data, status=status.HTTP_201_CREATED)
+    return Response(user.errors, status=status.HTTP_400_BAD_REQUEST)
 
-def unsubscribe(request, email):
-    user = User.objects.get(email=email)
-    user.active = False
-    user.save()
-    
-    return redirect('success')
+@api_view(["POST", "PUT"])
+def unsubscribe(request, id):
+    user = UserSerializer(data=request.data, id=id)
+    if user.is_valid():
+        user.save()
+        return Response(user.data, status=status.HTTP_202_ACCEPTED)
+    return Response(user.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
-def home(request):
-    
-    return render(request,
-                  'main/home.html')
-    
+@api_view(["POST"])
 def contact(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('success')
-    else: form = ContactForm()    
-    
-    return render(request,
-                  'main/contact.html',
-                  {'form':form})
-    
-def success(request):
-    return render(request, 'main/success.html')
+    cxt = ContactSerializer(data=request.data)
+    if cxt.is_valid():
+        cxt.save()
+        return Response(cxt.data, status=status.HTTP_201_CREATED)
+    return Response(cxt.errors, status=status.HTTP_400_BAD_REQUEST)

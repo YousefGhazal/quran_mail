@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     'herald',
     'django.contrib.sites',
+    'rest_framework',
 
     'main',
 ]
