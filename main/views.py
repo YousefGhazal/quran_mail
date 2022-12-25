@@ -14,8 +14,8 @@ def subscribe(request):
     return Response(user.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(["POST", "PUT"])
-def unsubscribe(request, id):
-    user = UserSerializer(data=request.data, id=id)
+def unsubscribe(request):
+    user = UserSerializer(data=request.data)
     if user.is_valid():
         user.save()
         return Response(user.data, status=status.HTTP_202_ACCEPTED)

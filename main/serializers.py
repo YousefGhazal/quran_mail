@@ -5,11 +5,11 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['email']
-        
-    def update(self, instance, validated_data):
-        instance.active = validated_data.get(False, instance.active)
-        instance.save()
-        return instance
+
+    def update(self, instance, validated_data, email):
+        instance  = User.objects.get(email=email)
+        instance.active = validated_data.get("False", instance.active)
+        return super().update(instance, validated_data)
         
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
