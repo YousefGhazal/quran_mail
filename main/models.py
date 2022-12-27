@@ -9,6 +9,9 @@ class User(models.Model):
     
     def __str__(self) :
         return self.email
+
+    def save(self, *args, **kwargs) -> None:
+        return super().save(*args, **kwargs)
     
     
 class Contact(models.Model):

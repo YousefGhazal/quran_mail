@@ -2,15 +2,21 @@ from rest_framework import serializers
 from .models import User, Contact
 
 class UserSerializer(serializers.ModelSerializer):
+    # email = serializers.EmailField(validators=[])
+
     class Meta:
         model = User
-        fields = ['email']
+        fields = ['email', 'active']
+        extra_kwargs = {
+            'email': {'validators': []}
+        }
 
-    def update(self, instance, validated_data, email):
-        instance  = User.objects.get(email=email)
-        instance.active = validated_data.get("False", instance.active)
-        return super().update(instance, validated_data)
-        
+    def create(self, validated_data):
+        obj, _ = User.objects.update_or_create(defaults={"active":True}, email=validated_data['email'])
+        return obj
+
+    
+
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
