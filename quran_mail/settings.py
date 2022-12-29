@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'herald',
     'django.contrib.sites',
     'rest_framework',
+    'drf_yasg',
 
     'main',
 ]
@@ -145,3 +146,16 @@ EMAIL_PORT = env("EMAIL_PORT", cast=int)
 EMAIL_USE_TLS = env("EMAIL_USE_TLS", cast=str) 
 EMAIL_BACKEND = env("EMAIL_BACKEND", cast=str) 
 DOMAIN = env("DOMAIN", cast=str) 
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        "JWT": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        },
+    },
+}
+
+CORS_ALLOWED_ORIGINS = env('CORS_ALLOWED_ORIGINS', cast=list)
+X_FRAME_OPTIONS = 'SAMEORIGIN'

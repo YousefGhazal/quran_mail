@@ -1,13 +1,20 @@
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 from main.models import User
-from .serializers import UserSerializer, ContactSerializer
+
+from .serializers import ContactSerializer, UserSerializer
 
 
 # Create your views here.
-@api_view(["POST", "PUT"])
+@swagger_auto_schema(
+        operation_description="""""",
+        request_body=UserSerializer,
+        method='POST'
+    )
+@api_view(["POST"])
 def subscribe(request):
     ser = UserSerializer(data=request.data)
     if ser.is_valid():
@@ -15,6 +22,11 @@ def subscribe(request):
         return Response(ser.data, status=status.HTTP_201_CREATED)
     return Response(ser.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@swagger_auto_schema(
+        operation_description="""""",
+        request_body=UserSerializer,
+        method='POST'
+    )
 @api_view(["POST"])
 def unsubscribe(request, email):
     user = User.objects.get(email=email)
@@ -32,7 +44,11 @@ def unsubscribe(request, email):
 #     user.save()
 #     return Response(status=status.HTTP_202_ACCEPTED)
 
-
+@swagger_auto_schema(
+        operation_description="""""",
+        request_body=ContactSerializer,
+        method='POST'
+    )
 @api_view(["POST"])
 def contact(request):
     ser = ContactSerializer(data=request.data)
