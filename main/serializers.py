@@ -6,13 +6,13 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['email', 'active']
+        fields = ['email', 'active', 'id']
         extra_kwargs = {
-            'email': {'validators': []}
+            'id': {'validators': []}
         }
 
     def create(self, validated_data):
-        obj, _ = User.objects.update_or_create(defaults={"active":True}, email=validated_data['email'])
+        obj, _ = User.objects.update_or_create(defaults={"active":True}, id=validated_data['id'])
         return obj
 
     

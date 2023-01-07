@@ -28,8 +28,8 @@ def subscribe(request):
         method='POST'
     )
 @api_view(["POST"])
-def unsubscribe(request, email):
-    user = User.objects.get(email=email)
+def unsubscribe(request, id):
+    user = User.objects.get(id=id)
     ser = UserSerializer(instance=user, data=request.data)
     if ser.is_valid():
         ser.save()

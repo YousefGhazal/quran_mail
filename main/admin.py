@@ -4,7 +4,7 @@ from .models import User, Contact
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     list_editable = ['active']
-    list_display = ['email', 'active']
+    list_display = ['email', 'active','id']
     search_fields = ['email']
     list_filter  = ['active']
     

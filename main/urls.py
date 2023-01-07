@@ -16,5 +16,5 @@ urlpatterns = [
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('subscribe/', views.subscribe, name='subscribe'),
     path('contact/',views.contact, name='contact'),
-    path('unsubscribe/<str:email>/',views.unsubscribe, name='unsubscribe'),
+    path('unsubscribe/<str:id>/',views.unsubscribe, name='unsubscribe'),
 ]
