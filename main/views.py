@@ -5,7 +5,7 @@ from rest_framework.response import Response
 
 from main.models import User
 
-from .serializers import ContactSerializer, UserSerializer
+from .serializers import ContactSerializer, UserSerializer, UserUnsubSerializer
 
 
 # Create your views here.
@@ -24,13 +24,13 @@ def subscribe(request):
 
 @swagger_auto_schema(
         operation_description="""""",
-        request_body=UserSerializer,
+        request_body=UserUnsubSerializer,
         method='POST'
     )
 @api_view(["POST"])
 def unsubscribe(request, id):
     user = User.objects.get(id=id)
-    ser = UserSerializer(instance=user.id, data=request.data)
+    ser = UserUnsubSerializer(instance=user, data=request.data)
     if ser.is_valid():
         ser.save()
         return Response(ser.data, status=status.HTTP_201_CREATED)
