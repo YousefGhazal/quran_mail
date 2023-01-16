@@ -30,7 +30,7 @@ def subscribe(request):
 @api_view(["POST"])
 def unsubscribe(request, id):
     user = User.objects.get(id=id)
-    ser = UserSerializer(instance=user, data=request.data)
+    ser = UserSerializer(instance=user.id, data=request.data)
     if ser.is_valid():
         ser.save()
         return Response(ser.data, status=status.HTTP_201_CREATED)
