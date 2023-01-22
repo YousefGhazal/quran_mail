@@ -8,11 +8,11 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['email', 'active', 'id']
         extra_kwargs = {
-            'id': {'validators': []}
+            'email': {'validators': []}
         }
 
     def create(self, validated_data):
-        obj, _ = User.objects.update_or_create(defaults={"active":True}, id=validated_data['id'])
+        obj, _ = User.objects.update_or_create(defaults={"active":True}, email=validated_data['email'])
         return obj
 
 class UserUnsubSerializer(serializers.ModelSerializer):
