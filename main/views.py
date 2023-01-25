@@ -30,10 +30,7 @@ def subscribe(request):
     )
 @api_view(["POST"])
 def unsubscribe(request, id):
-<<<<<<< HEAD
-=======
     # user = User.objects.get(id=id)
->>>>>>> 1e81930 (get_object or return 404)
     user = get_object_or_404(User, id=id)
     ser = UserUnsubSerializer(instance=user, data=request.data)
     if ser.is_valid():
