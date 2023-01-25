@@ -2,6 +2,7 @@ from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.shortcuts import get_object_or_404
 
 from main.models import User
 
@@ -29,7 +30,7 @@ def subscribe(request):
     )
 @api_view(["POST"])
 def unsubscribe(request, id):
-    user = User.objects.get(id=id)
+    user = get_object_or_404(User, id=id)
     ser = UserUnsubSerializer(instance=user, data=request.data)
     if ser.is_valid():
         ser.save()
