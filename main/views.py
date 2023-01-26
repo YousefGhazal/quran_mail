@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 
 from main.models import User
+from .notifications import ContentEmail
 
 from .serializers import ContactSerializer, UserSerializer, UserUnsubSerializer
 
@@ -55,6 +56,8 @@ def unsubscribe(request, id):
 def contact(request):
     ser = ContactSerializer(data=request.data)
     if ser.is_valid():
+        ContentEmail(request.data['name'], request.data['description'], request.data['email']).send()
         ser.save()
+
         return Response(ser.data, status=status.HTTP_201_CREATED)
     return Response(ser.errors, status=status.HTTP_400_BAD_REQUEST)

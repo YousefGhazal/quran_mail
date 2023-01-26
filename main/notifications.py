@@ -17,3 +17,17 @@ class Email(EmailNotification):
         return 'test_ayah', 'test_tafseer', 'test@gmail.com', 'num_aya', 'name'
 
 registry.register(Email)
+
+class ContentEmail(EmailNotification):
+    template_name = 'content_email'
+    subject = 'from quran_mail'
+
+    def __init__(self, name, description, email):
+        self.context = {'name':name, 'description':description, 'email':email}
+        self.to_emails = ['nitox34@gmail.com','ahmed0saber33@gmail.com']
+    
+    @staticmethod
+    def get_demo_args():
+        return 'name', 'email', 'description'
+    
+registry.register(ContentEmail)
