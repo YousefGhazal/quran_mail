@@ -139,15 +139,12 @@ def send_request(url_aya, url_tafseer):
 
     return r_aya['text'], r_tafseer['text'] , r_aya['sura_name'], r_aya["ayah_number"]
 
-# with open('text.txt', 'w') as f:
-#     f.write(str(send_request(*get_ayah())))
-    
 @shared_task
 def active_user():
     users = User.objects.filter(active=True)
     m_ayah, m_tafseer, num_ayah, name_sura = send_request(*get_ayah())
     for user in users:
-        Email( m_ayah, m_tafseer, user.email, num_ayah, name_sura).send()
+        Email( m_ayah, m_tafseer, user, num_ayah, name_sura).send()
         
 """
 background task (function) runner

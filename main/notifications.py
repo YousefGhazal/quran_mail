@@ -7,10 +7,10 @@ class Email(EmailNotification):
     subject = 'welcome to quran_mail' 
 
 
-    def __init__(self, ayah, tafseer, email, num_ayah, name_sura):  
-        self.context = {'ayah':ayah, 'tafsser':tafseer, 'email':email,
+    def __init__(self, ayah, tafseer, user, num_ayah, name_sura):  
+        self.context = {'ayah':ayah, 'tafsser':tafseer, 'user': user,
          'sub':self.subject, 'num_ayah':num_ayah, 'name_sura':name_sura, 'domain':settings.DOMAIN}
-        self.to_emails = [email]
+        self.to_emails = [user.email]
     
     @staticmethod
     def get_demo_args():
