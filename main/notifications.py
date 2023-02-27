@@ -16,7 +16,6 @@ class Email(EmailNotification):
     def get_demo_args():
         return 'test_ayah', 'test_tafseer', 'test@gmail.com', 'num_aya', 'name'
 
-registry.register(Email)
 
 class ContentEmail(EmailNotification):
     template_name = 'content_email'
@@ -30,4 +29,3 @@ class ContentEmail(EmailNotification):
     def get_demo_args():
         return 'name', 'email', 'description'
     
-registry.register(ContentEmail)
