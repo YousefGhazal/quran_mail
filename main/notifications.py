@@ -17,6 +17,7 @@ class Email(EmailNotification):
         return 'test_ayah', 'test_tafseer', 'test@gmail.com', 'num_aya', 'name'
 
 
+
 class ContentEmail(EmailNotification):
     template_name = 'content_email'
     subject = 'from quran_mail'

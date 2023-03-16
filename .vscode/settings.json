@@ -8,5 +8,6 @@
         "الاشتراك",
         "الغاء",
         "بنجاح"
-    ]
+    ],
+    "python.formatting.provider": "black"
 }
