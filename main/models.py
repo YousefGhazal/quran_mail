@@ -5,6 +5,8 @@ class User(models.Model):
     id=models.CharField(primary_key=True, default=uuid.uuid4, editable=False, max_length=36)
     email = models.EmailField(unique=True)
     active = models.BooleanField(default=True)
+    created = models.DateTimeField(auto_now_add=True)
+
     
     def __str__(self) :
         return self.email

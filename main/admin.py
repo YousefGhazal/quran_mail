@@ -6,7 +6,7 @@ class UserAdmin(admin.ModelAdmin):
     list_editable = ['active']
     list_display = ['email', 'active','id']
     search_fields = ['email']
-    list_filter  = ['active']
+    list_filter  = ['active', 'created']
     
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
