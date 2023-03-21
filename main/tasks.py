@@ -2,7 +2,7 @@ from random import randrange
 import requests
 from celery import shared_task
 from .models import User
-from .notifications import Email
+from .notifications import Email, SendMassage
 
 range_ayah = {
     "1": "7",
@@ -145,6 +145,12 @@ def active_user():
     m_ayah, m_tafseer, num_ayah, name_sura = send_request(*get_ayah())
     for user in users:
         Email( m_ayah, m_tafseer, user, num_ayah, name_sura).send()
+
+
+def send_now():
+    users = User.objects.filter(active=True)
+    for user in users:
+        SendMassage(user).send()
         
 """
 background task (function) runner

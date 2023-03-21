@@ -30,3 +30,15 @@ class ContentEmail(EmailNotification):
     def get_demo_args():
         return 'name', 'email', 'description'
     
+class SendMassage(EmailNotification):
+    template_name = 'message' 
+    subject = 'welcome to quran_mail' 
+
+    def __init__(self, user) -> None:
+        self.context = {'domain':settings.DOMAIN}
+        self.to_emails = [user.email]
+        
+    @staticmethod
+    def get_demo_args():
+        return  'test@gmail.com'
+    

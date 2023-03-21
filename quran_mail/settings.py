@@ -30,7 +30,7 @@ DEBUG = env("DEBUG", cast=bool)
 
 ALLOWED_HOSTS = env("ALLOWED_HOSTS", cast=list)
 
-
+SITE_ID = 1
 
 # Application definition
 
