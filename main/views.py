@@ -12,8 +12,10 @@ from .serializers import ContactSerializer, UserSerializer, UserUnsubSerializer
 
 # Create your views here.
 @swagger_auto_schema(
-    operation_description="""""", request_body=UserSerializer, method="POST"
-)
+        operation_description="""""",
+        request_body=UserSerializer,
+        method='POST'
+    )
 @api_view(["POST"])
 def subscribe(request):
     ser = UserSerializer(data=request.data)
@@ -22,10 +24,11 @@ def subscribe(request):
         return Response(ser.data, status=status.HTTP_201_CREATED)
     return Response(ser.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
 @swagger_auto_schema(
-    operation_description="""""", request_body=UserUnsubSerializer, method="POST"
-)
+        operation_description="""""",
+        request_body=UserUnsubSerializer,
+        method='POST'
+    )
 @api_view(["POST"])
 def unsubscribe(request, id):
     # user = User.objects.get(id=id)
@@ -37,16 +40,23 @@ def unsubscribe(request, id):
     return Response(ser.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+# @api_view(["POST"])
+# def unsubscribe(request, email):
+#     user = User.objects.get(email=email)
+#     user.active = False
+#     user.save()
+#     return Response(status=status.HTTP_202_ACCEPTED)
+
 @swagger_auto_schema(
-    operation_description="""""", request_body=ContactSerializer, method="POST"
-)
+        operation_description="""""",
+        request_body=ContactSerializer,
+        method='POST'
+    )
 @api_view(["POST"])
 def contact(request):
     ser = ContactSerializer(data=request.data)
     if ser.is_valid():
-        ContentEmail(
-            request.data["name"], request.data["description"], request.data["email"]
-        ).send()
+        ContentEmail(request.data['name'], request.data['description'], request.data['email']).send()
         ser.save()
 
         return Response(ser.data, status=status.HTTP_201_CREATED)
