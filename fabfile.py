@@ -1,7 +1,7 @@
 import os
 from fabric.api import *
 
-env.hosts = ['ubuntu@54.242.5.95']
+env.hosts = ['ubuntu@3.225.96.207']
 PROJECT_DIR = '/home/ubuntu/quran_mail'
 
 
